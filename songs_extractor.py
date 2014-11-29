@@ -32,32 +32,6 @@ class Song(object):
         return [self.artist, self.date, self.track]
 
 
-class SongWithMeta(Song):
-    """
-    Song + additional information. This is some information I cared about.
-    """
-    def __init__(self, song, duration, bpm, energy, speechiness, valence, acousticness):
-        self.song = song
-        self.duration = duration
-        self.bpm = bpm
-        self.energy = energy
-        self.speechiness = speechiness
-        self.valence = valence
-        self.acousticness = acousticness
-
-    def to_row(self):
-        """Convert to a python list, so then it can be serialized to CSV row
-        """
-        return [self.song.artist,
-                self.song.date,
-                self.song.track,
-                self.duration,
-                self.bpm,
-                self.energy,
-                self.speechiness,
-                self.valence,
-                self.acousticness]
-
 def read_songs(file_name):
     """ Parses scrobble file into a generator of `Song`
     """
